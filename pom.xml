@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>app.yaware.com</groupId>
-    <artifactId>test</artifactId>
+    <artifactId>app_yaware</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -33,26 +33,6 @@
         </resources>
 
         <plugins>
-            <!--            <plugin>
-                            <groupId>org.codehaus.mojo</groupId>
-                            <artifactId>build-helper-maven-plugin</artifactId>
-                            <version>1.12</version>
-                            <executions>
-                                <execution>
-                                    <id>timestamp-property</id>
-                                    <goals>
-                                        <goal>timestamp-property</goal>
-                                    </goals>
-                                    <configuration>
-                                        <name>build.time</name>
-                                        <pattern>dd-MM-yyyy HH-mm</pattern>
-                                        <locale>ua</locale>
-                                        <timeZone>GMT+2</timeZone>
-                                    </configuration>
-                                </execution>
-                            </executions>
-                        </plugin>-->
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -89,7 +69,7 @@
                         </property>
                     </properties>
                     <reportsDirectory>
-                        ${project.basedir}/test-output/${timestamp}<!--/${build.time}--></reportsDirectory>
+                        ${project.basedir}/test-output/${timestamp}</reportsDirectory>
                     <workingDirectory>${project.basedir}</workingDirectory>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/suites/${suite}.xml</suiteXmlFile>
