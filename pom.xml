@@ -19,6 +19,8 @@
         <reportng.version>1.1.4</reportng.version>
         <guice.version>4.1.0</guice.version>
         <lombok.version>1.16.10</lombok.version>
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>dd-MM-yyyy HH-mm-ss</maven.build.timestamp.format>
         <suite>suite</suite>
     </properties>
 
@@ -31,25 +33,25 @@
         </resources>
 
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.12</version>
-                <executions>
-                    <execution>
-                        <id>timestamp-property</id>
-                        <goals>
-                            <goal>timestamp-property</goal>
-                        </goals>
-                        <configuration>
-                            <name>build.time</name>
-                            <pattern>dd-MM-yyyy HH-mm</pattern>
-                            <locale>ua</locale>
-                            <timeZone>GMT+2</timeZone>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+            <!--            <plugin>
+                            <groupId>org.codehaus.mojo</groupId>
+                            <artifactId>build-helper-maven-plugin</artifactId>
+                            <version>1.12</version>
+                            <executions>
+                                <execution>
+                                    <id>timestamp-property</id>
+                                    <goals>
+                                        <goal>timestamp-property</goal>
+                                    </goals>
+                                    <configuration>
+                                        <name>build.time</name>
+                                        <pattern>dd-MM-yyyy HH-mm</pattern>
+                                        <locale>ua</locale>
+                                        <timeZone>GMT+2</timeZone>
+                                    </configuration>
+                                </execution>
+                            </executions>
+                        </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -86,7 +88,8 @@
                             </value>
                         </property>
                     </properties>
-                    <reportsDirectory>${project.basedir}/test-output<!--/${build.time}--></reportsDirectory>
+                    <reportsDirectory>
+                        ${project.basedir}/test-output/${timestamp}<!--/${build.time}--></reportsDirectory>
                     <workingDirectory>${project.basedir}</workingDirectory>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/suites/${suite}.xml</suiteXmlFile>

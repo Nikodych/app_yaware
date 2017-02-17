@@ -26,7 +26,7 @@ public class TestListener extends TestListenerAdapter {
                 .getDriver();
 
         final Date currentDate = new Date();
-        final Format formatter = new SimpleDateFormat("dd.MM.yyyy_HH-mm - ");
+        final Format formatter = new SimpleDateFormat("dd.MM.yyyy_HH-mm-ss - ");
 
         final File screenShotFile = ((TakesScreenshot) driver)
                 .getScreenshotAs(OutputType.FILE);
